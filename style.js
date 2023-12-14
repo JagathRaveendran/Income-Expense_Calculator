@@ -124,7 +124,7 @@ function chart()
 
 
   document.getElementById("Balence").innerHTML = bal;
-  if( totalExpence > totalIncome )
+  if( totalExpence > totalIncome || bal == 0 )
   {
     document.getElementById("score").style.color ="red";;
     document.getElementById("score").innerHTML = "Your Expense is too heigh ";

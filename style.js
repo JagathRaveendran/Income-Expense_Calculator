@@ -106,11 +106,24 @@ function btnsubmit1() {
 
 function chart() 
 {
+  let Balence = totalIncome - totalExpence;
+
+ 
   var xValues = ["income", "Expense", "Balance"];
-  var yValues = [totalIncome, totalExpence, totalIncome - totalExpence];
+  if( Balence < 0)
+  {
+    alert("Balence is minus");
+    Balence = 0;
+
+  }
+  const bal = totalIncome - totalExpence
+  var yValues = [totalIncome, totalExpence, Balence];
+
   var barColors = ["#00aba9", "#b91d47", "#2b5797"];
-  const Balence = totalIncome - totalExpence;
-  document.getElementById("Balence").innerHTML = Balence;
+
+
+
+  document.getElementById("Balence").innerHTML = bal;
   if( totalExpence > totalIncome )
   {
     document.getElementById("score").style.color ="red";;
@@ -121,10 +134,7 @@ function chart()
     document.getElementById("score").style.color ="Green";;
     document.getElementById("score").innerHTML = "good job ";
   }
-  if( Balence < 0)
-  {
-    alert("Balence is minus");
-  }
+ 
   new Chart("myChart", {
     type: "pie",
     data: {
